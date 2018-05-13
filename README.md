@@ -1,4 +1,4 @@
-## Graphql meets 
+## Buy&Sell
 
 ## Get Started
 
