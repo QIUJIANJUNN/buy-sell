@@ -1,0 +1,33 @@
+query {
+
+  orderBookPairs(currencyPairs:["BTC-USDT",]) {
+    platform,
+    currencyPair,
+    highestSell {
+      count
+      price
+    }
+    lowestBuy {
+      count
+      price
+    }
+  }
+
+  BuyLowSellHigh(currencyPairs:["BTC-USDT"],SellHigh:"Cobinhood",BuyLow:"Binance") {
+    currencyPair,
+    platform,
+    highestSell {
+      count
+      price
+    }
+    platform,
+    lowestBuy {
+      count
+      price
+    }
+    highestSellSubtractlowesBuy {
+      countTotal
+      priceTotal
+    }
+  }
+}

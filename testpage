@@ -1,0 +1,73 @@
+{
+  "data": {
+    "orderBookPairs": [
+      {
+        "platform": "Cobinhood",
+        "currencyPair": "BTC-USDT",
+        "highestSell": {
+          "count": 0.001,
+          "price": 8711
+        },
+        "lowestBuy": {
+          "count": 1e-8,
+          "price": 8706.2
+        }
+      },
+      {
+        "platform": "Binance",
+        "currencyPair": "BTC-USDT",
+        "highestSell": {
+          "count": 0.006374,
+          "price": 8752.7
+        },
+        "lowestBuy": {
+          "count": 0.04731,
+          "price": 8748
+        }
+      }
+    ],
+  "BuyLowSellHigh": [
+      "currencyPair": "BTC-USDT",
+      "platform": "Cobinhood",
+      "highestSell": {
+        "count": 0.001,
+        "price": 8711
+      },
+      "currencyPair": "BTC-USDT",
+      "platform": "Binance",
+      "lowestBuy": {
+        "count": 0.04731,
+        "price": 8748
+      }
+      "highestSellSubtractlowesBuy": {
+        "count": -0.04631,
+        "price": -37
+      }
+    ]
+  }
+}
+
+
+const BuyLowSellHigh = new GraphQLObjectType({
+      name: 'BuyLowSellHighType',
+      fields: {
+        TokenPair: {type:GraphQLString},
+        SellingPlatform: {type:GraphQLString},
+        BuyingPlatform: {type:GraphQLString},
+        MaxAmount: {type:GraphQLFloat},
+        profitPercentage__: {type:GraphQLFloat},
+      }
+  })
+
+  BuyLowSellHigh: {
+    type:BuyLowSellHigh,
+    resolve:() => {
+      return ({
+        TokenPair: "ETH-USDT",
+        SellingPlatform: "Bin",
+        BuyingPlatform: "Cob",
+        MaxAmount: 0.002,
+        profitPercentage__: 0.001,
+      })
+    }
+  },
